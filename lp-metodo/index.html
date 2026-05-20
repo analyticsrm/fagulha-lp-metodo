@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Método Fagulha | Estúdio Fagulha</title>
+  <meta name="description" content="Arquitetura executiva para incorporadoras e construtoras. Projetos viáveis, assertivos e rentáveis — do estudo de viabilidade à entrega.">
+  <meta property="og:title" content="Método Fagulha | Estúdio Fagulha">
+  <meta property="og:description" content="Arquitetura executiva para incorporadoras e construtoras. Projetos viáveis, assertivos e rentáveis — do estudo de viabilidade à entrega.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
+  <style>
+    /* ── FONTES ── */
+    @font-face {
+      font-family: 'PlayfairDisplay';
+      src: url('../fonts/PlayfairDisplay-Italic.woff2') format('woff2');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Neurialgrotesk';
+      src: url('../fonts/NeurialGrotesk-Light.otf') format('opentype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Neurialgrotesk';
+      src: url('../fonts/NeurialGrotesk-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Neurialgrotesk';
+      src: url('../fonts/NeurialGrotesk-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Neurialgrotesk';
+      src: url('../fonts/NeurialGrotesk-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ── BASE ── */
+    body {
+      background-color: #e4dcd2;
+      color: #57504d;
+      font-family: 'Neurialgrotesk', Arial, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ── TOKENS ── */
+    :root {
+      --creme:       #e4dcd2;
+      --creme-soft:  #ede8e0;
+      --vermelho:    #ab4c41;
+      --vermelho-dk: #9a423b;
+      --azul:        #275d7b;
+      --azul-dk:     #1e4c65;
+      --marrom:      #57504d;
+      --marrom-dk:   #3d3532;
+      --linha:       #c9bfaa;
+      --max:         1280px;
+    }
+
+    /* ── UTILIDADES ── */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--vermelho);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .eyebrow.light { color: rgba(228,220,210,.65); }
+
+    h1, h2, h3, h4 {
+      font-family: 'PlayfairDisplay', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    img { display: block; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .navbar:not(.scrolled) .navbar-logo img {
+      filter: brightness(0) invert(1);
+      opacity: 0.92;
+    }
+    .navbar.scrolled {
+      background: rgba(228,220,210,.96);
+      box-shadow: 0 1px 0 var(--linha);
+      backdrop-filter: blur(4px);
+    }
+    .navbar-logo img { height: 36px; width: auto; transition: filter 0.3s; }
+    .navbar-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--vermelho);
+      color: #e4dcd2;
+      padding: 10px 22px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .navbar-cta:hover { background: var(--vermelho-dk); }
+    .navbar-cta img { width: 16px; height: auto; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      padding: 140px 40px 80px;
+      display: flex;
+      align-items: center;
+      background-color: var(--azul);
+    }
+    .hero-grid {
+      max-width: var(--max);
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-heading {
+      font-size: clamp(34px, 4.5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+      color: var(--creme);
+      margin-bottom: 22px;
+    }
+    .hero-heading em { color: rgba(228,220,210,.8); font-style: italic; }
+    .hero-body {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(228,220,210,.85);
+      margin-bottom: 36px;
+      max-width: 500px;
+    }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-img-wrap {
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      will-change: transform;
+    }
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-text-layer {
+      will-change: transform;
+    }
+
+    /* ── BOTÕES ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--vermelho);
+      color: #e4dcd2;
+      padding: 14px 28px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-primary:hover { background: var(--vermelho-dk); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--creme);
+      padding: 13px 26px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1.5px solid rgba(228,220,210,.45);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .btn-outline:hover { background: rgba(228,220,210,.1); border-color: var(--creme); }
+
+    .btn-outline-azul {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--azul);
+      padding: 13px 26px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1.5px solid var(--azul);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .btn-outline-azul:hover { background: var(--azul); color: var(--creme); }
+
+    /* ── SEÇÕES ── */
+    .section { padding: 96px 40px; }
+    .section.bg-soft { background: var(--creme-soft); }
+    .section.bg-azul { background: var(--azul); color: var(--creme); }
+    .section.bg-verm { background: var(--vermelho); color: var(--creme); }
+
+    .section.bg-azul .section-heading,
+    .section.bg-verm .section-heading { color: var(--creme); }
+    .section.bg-azul .section-heading em,
+    .section.bg-verm .section-heading em { color: rgba(228,220,210,.8); }
+    .section.bg-azul .section-body,
+    .section.bg-verm .section-body { color: rgba(228,220,210,.85); }
+
+    .section-inner { max-width: var(--max); margin: 0 auto; }
+
+    .section-heading {
+      font-size: clamp(26px, 3.5vw, 40px);
+      line-height: 1.1;
+      color: var(--marrom-dk);
+      margin-bottom: 14px;
+    }
+    .section-heading em { color: var(--vermelho); }
+
+    .section-body {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--marrom);
+      max-width: 560px;
+    }
+
+    /* ── GRIDS ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .two-col.center { align-items: center; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .two-two { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
+    /* ── IMAGENS ── */
+    .img-service {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+
+    /* ── PILARES (fundo vermelho) ── */
+    .pillar {
+      background: rgba(228,220,210,.12);
+      border: 1px solid rgba(228,220,210,.18);
+      padding: 28px;
+    }
+    .pillar-num {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(228,220,210,.45);
+      margin-bottom: 14px;
+    }
+    .pillar h4 {
+      font-size: 18px;
+      color: var(--creme);
+      margin-bottom: 10px;
+    }
+    .pillar p {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(228,220,210,.8);
+      line-height: 1.65;
+    }
+
+    /* ── NÚMEROS ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 56px;
+      border-top: 1px solid rgba(228,220,210,.18);
+    }
+    .stat {
+      padding: 40px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(228,220,210,.18);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'PlayfairDisplay', Georgia, serif;
+      font-size: 52px;
+      font-style: italic;
+      line-height: 1;
+      color: var(--creme);
+      margin-bottom: 8px;
+    }
+    .stat-lab {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(228,220,210,.65);
+    }
+
+    /* ── PASSOS DO MÉTODO ── */
+    .method-steps { margin-top: 48px; }
+    .method-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--linha);
+      align-items: start;
+    }
+    .method-step:last-child { border-bottom: none; }
+    .method-step-num {
+      font-family: 'PlayfairDisplay', Georgia, serif;
+      font-size: 52px;
+      font-style: italic;
+      color: var(--vermelho);
+      line-height: 1;
+    }
+    .method-step-content h4 {
+      font-size: 20px;
+      color: var(--azul);
+      margin-bottom: 8px;
+    }
+    .method-step-content p {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--marrom);
+    }
+
+    /* ── CASES ── */
+    .case-card {
+      background: var(--creme);
+      border: 1px solid var(--linha);
+      overflow: hidden;
+    }
+    .case-card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s;
+    }
+    .case-card:hover .case-card-img { transform: scale(1.03); }
+    .case-card-img-wrap { overflow: hidden; }
+    .case-card-body { padding: 26px; }
+    .case-card-name {
+      font-family: 'PlayfairDisplay', Georgia, serif;
+      font-size: 20px;
+      color: var(--azul);
+      margin-bottom: 4px;
+    }
+    .case-card-meta {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--marrom);
+      opacity: .6;
+      margin-bottom: 20px;
+    }
+    .case-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--vermelho);
+      margin-bottom: 6px;
+    }
+    .case-text {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--marrom);
+      margin-bottom: 16px;
+    }
+    .case-results { list-style: none; }
+    .case-results li {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--marrom);
+      padding: 8px 0 8px 18px;
+      position: relative;
+      border-bottom: 1px dotted var(--linha);
+      line-height: 1.5;
+    }
+    .case-results li:last-child { border-bottom: none; }
+    .case-results li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 7px;
+      height: 7px;
+      background: var(--vermelho);
+      transform: rotate(45deg);
+    }
+    .case-results li strong {
+      display: block;
+      font-weight: 500;
+      font-size: 12px;
+      color: var(--azul);
+      margin-bottom: 2px;
+      font-family: 'Neurialgrotesk', sans-serif;
+      font-style: normal;
+    }
+
+    /* ── DIVISOR ── */
+    .divider { border: none; border-top: 1px solid var(--linha); }
+
+    /* ── FORMULÁRIO ── */
+    .form-section {
+      padding: 96px 40px;
+      background: var(--azul);
+      color: var(--creme);
+    }
+    .form-grid {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .form-heading {
+      font-size: clamp(26px, 3.5vw, 38px);
+      line-height: 1.1;
+      color: var(--creme);
+      margin-bottom: 16px;
+    }
+    .form-heading em { color: rgba(228,220,210,.8); }
+    .form-body {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(228,220,210,.85);
+      margin-bottom: 24px;
+    }
+    .form-wp {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(228,220,210,.55);
+    }
+    .form-wp a { color: rgba(228,220,210,.85); text-decoration: none; }
+    .form-wp a:hover { color: var(--creme); }
+    .form-box {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(228,220,210,.18);
+      padding: 32px;
+    }
+    .form-box-title {
+      font-family: 'PlayfairDisplay', Georgia, serif;
+      font-size: 22px;
+      color: var(--creme);
+      margin-bottom: 6px;
+    }
+    .form-box-sub {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(228,220,210,.65);
+      margin-bottom: 22px;
+    }
+    .field {
+      width: 100%;
+      background: rgba(228,220,210,.08);
+      border: 1px solid rgba(228,220,210,.22);
+      padding: 12px 14px;
+      color: var(--creme);
+      font-family: 'Neurialgrotesk', Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      margin-bottom: 10px;
+      outline: none;
+      appearance: none;
+      transition: border-color .2s;
+    }
+    .field::placeholder { color: rgba(228,220,210,.42); }
+    .field:focus { border-color: rgba(228,220,210,.55); }
+    .field option { background: var(--azul-dk); color: #e4dcd2; }
+    .form-submit {
+      width: 100%;
+      background: var(--vermelho);
+      color: var(--creme);
+      border: none;
+      padding: 14px;
+      font-family: 'Neurialgrotesk', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .form-submit:hover { background: var(--vermelho-dk); }
+    .form-privacy {
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(228,220,210,.45);
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: transparent;
+      padding: 60px 40px 40px;
+      border-top: 1px solid var(--linha);
+    }
+    .footer-bar {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-bar img { height: 30px; width: auto; }
+    .footer-social { display: flex; gap: 14px; align-items: center; }
+    .footer-social a { opacity: .55; transition: opacity .2s; }
+    .footer-social a:hover { opacity: 1; }
+    .footer-social img { width: 24px; height: 24px; object-fit: contain; }
+    .footer-divider {
+      max-width: var(--max);
+      margin: 24px auto 0;
+      border: none;
+      border-top: 1px solid var(--linha);
+    }
+    .footer-copy {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px 0 0;
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(87,80,77,.45);
+      letter-spacing: .5px;
+    }
+
+    /* ── WHATSAPP FLUTUANTE ── */
+    .wpp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 200;
+      width: 54px;
+      height: 54px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,.22);
+      transition: transform .2s;
+      text-decoration: none;
+    }
+    .wpp-float:hover { transform: scale(1.07); }
+    .wpp-float svg { width: 27px; height: 27px; fill: #fff; }
+
+    /* ── RESPONSIVO ── */
+    @media (max-width: 960px) {
+      .navbar { padding: 16px 24px; }
+      .hero { padding: 120px 24px 60px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero-img { aspect-ratio: 16/9; }
+      .section { padding: 72px 24px; }
+      .two-col { grid-template-columns: 1fr; gap: 36px; }
+      .three-col { grid-template-columns: 1fr; }
+      .two-two { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid rgba(228,220,210,.18); }
+      .stat:last-child { border-bottom: none; }
+      .method-step { grid-template-columns: 60px 1fr; gap: 16px; }
+      .method-step-num { font-size: 40px; }
+      .form-section { padding: 72px 24px; }
+      .form-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer { padding: 40px 24px 28px; }
+      .footer-bar { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── PLACEHOLDERS DE IMAGEM ── */
+    .img-ph {
+      width: 100%;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(171,76,65,.07),
+        rgba(171,76,65,.07) 9px,
+        rgba(171,76,65,.14) 9px,
+        rgba(171,76,65,.14) 18px
+      );
+      border: 1.5px dashed var(--vermelho);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 28px 20px;
+      gap: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--vermelho);
+    }
+    .img-ph-file {
+      font-size: 11.5px;
+      letter-spacing: 0.5px;
+      text-transform: none;
+      color: var(--marrom-dk);
+      background: var(--creme);
+      padding: 4px 14px;
+      border: 1px solid var(--vermelho);
+    }
+    .img-ph-dim {
+      font-size: 9px;
+      opacity: .6;
+    }
+  </style>
+</head>
+<body>
+
+<!-- WhatsApp flutuante -->
+<a href="https://api.whatsapp.com/send?phone=5516991690303" target="_blank" rel="noopener" class="wpp-float" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar" id="navbar">
+  <a href="../index.html" class="navbar-logo">
+    <img src="../images/Logotipo_Est_Fagulha_horizontal_brown.png" alt="Estúdio Fagulha" width="220" height="auto">
+  </a>
+  <a href="#contato" class="navbar-cta">
+    fale conosco
+    <img src="../images/Grafismo_Fagulha_Icone_OffWhite.png" alt="" width="16" height="16">
+  </a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="topo">
+  <div class="hero-grid">
+    <div class="hero-text-layer">
+      <span class="eyebrow light">Estúdio Fagulha &middot; Método</span>
+      <h1 class="hero-heading">Arquitetura executiva para <em>incorporadoras.</em></h1>
+      <p class="hero-body">Projetos que garantem eficiência de ponta a ponta para um produto rentável desde a fundação. Entregas modulares para quem busca extrair o máximo da arquitetura executiva.</p>
+      <div class="hero-ctas">
+        <a href="#metodo" class="btn-primary">Conheça o Método Fagulha</a>
+        <a href="https://api.whatsapp.com/send?phone=5516991690303" target="_blank" rel="noopener" class="btn-outline">Falar no WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="img-ph hero-img" id="hero-parallax" style="aspect-ratio:4/3">
+        <span>Imagem hero · perspectiva de empreendimento</span>
+        <span class="img-ph-file">hero-lp-metodo.webp</span>
+        <span class="img-ph-dim">1920 × 1080 · WebP · &lt;200 KB</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DOR ── -->
+<section class="section bg-soft" id="dor">
+  <div class="section-inner">
+    <span class="eyebrow">Se você é incorporador ou construtor</span>
+    <h2 class="section-heading" style="max-width:700px">Reduzir gargalos é <em>aumentar margem.</em></h2>
+    <p class="section-body" style="max-width:620px; margin-bottom:20px">Combinamos inteligência técnica, domínio de legislação e leitura de mercado para garantir projetos viáveis, assertivos e prontos para performar — tudo isso com um olhar de quem vivenciou a realidade de grandes incorporadoras do mercado.</p>
+    <p class="section-body" style="max-width:620px">Nascemos para potencializar resultados através de um olhar que integra etapas, otimizando tempo e trazendo eficiência de custos no desenvolvimento do seu produto imobiliário.</p>
+  </div>
+</section>
+
+<!-- ── O MÉTODO ── -->
+<section class="section" id="metodo">
+  <div class="section-inner">
+    <div class="two-col center">
+      <div class="img-ph img-service" style="aspect-ratio:4/3">
+        <span>Imagem do método · projeto arquitetônico</span>
+        <span class="img-ph-file">metodo-projeto.webp</span>
+        <span class="img-ph-dim">800 × 600 · WebP</span>
+      </div>
+      <div>
+        <span class="eyebrow">O Método</span>
+        <h2 class="section-heading">Não desenhamos prédios. <em>Estruturamos</em> viabilidade executiva para o seu lançamento.</h2>
+        <p class="section-body" style="margin-bottom:18px">O Método Fagulha traz arquitetura de precisão, gestão consultiva e foco no que realmente importa: resultado.</p>
+        <p class="section-body">Nossa atuação extrapola o "desenhar empreendimentos". Estruturamos soluções para que seu lançamento tenha maior segurança e rentabilidade.</p>
+        <a href="#contato" class="btn-primary" style="margin-top:28px">Quero conhecer o Método</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── PILARES ── -->
+<section class="section bg-verm" id="pilares">
+  <div class="section-inner">
+    <span class="eyebrow light">Os 3 pilares do Método</span>
+    <h2 class="section-heading" style="margin-bottom:48px">Por aqui, <em>transformamos estratégia em resultados.</em></h2>
+    <div class="three-col">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h4>Inteligência estratégica</h4>
+        <p>Unimos inteligência e precisão estratégica para desenvolver produtos imobiliários desenhados para a máxima performance do seu negócio.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h4>Braço técnico-consultivo</h4>
+        <p>Somos a extensão da sua operação. Integramos processos para blindar o cronograma e garantir que a viabilidade executiva acompanhe a eficiência financeira — com a expertise de quem vivencia as especificidades de cada região do Brasil.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h4>Entrega no ritmo do mercado</h4>
+        <p>Entregas de alta precisão no ritmo acelerado do mercado. Processos desburocratizados garantem que o seu próximo lançamento chegue com qualidade executiva sem gargalos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NÚMEROS ── -->
+<section class="section bg-azul" id="numeros">
+  <div class="section-inner">
+    <span class="eyebrow light">Estúdio Fagulha em números</span>
+    <h2 class="section-heading">Resultado que se <em>sente.</em></h2>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">+15</div>
+        <div class="stat-lab">anos de mercado</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100+</div>
+        <div class="stat-lab">projetos entregues</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">R$&nbsp;2BI</div>
+        <div class="stat-lab">VGV viabilizado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMO FUNCIONA ── -->
+<section class="section" id="como-funciona">
+  <div class="section-inner">
+    <span class="eyebrow">Da viabilidade à entrega</span>
+    <h2 class="section-heading">Um processo <em>desburocratizado,</em> ponta a ponta.</h2>
+    <div class="method-steps">
+      <div class="method-step">
+        <div class="method-step-num">01</div>
+        <div class="method-step-content">
+          <h4>Imersão e leitura de mercado</h4>
+          <p>Entendemos seu produto, seu cliente final, sua margem e a legislação local. É aqui que evitamos surpresas lá na frente.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="method-step-num">02</div>
+        <div class="method-step-content">
+          <h4>Estudo de viabilidade</h4>
+          <p>Combinamos potencial construtivo, mix de produto e enquadramento legal para que o desenho já nasça financeiramente coerente.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="method-step-num">03</div>
+        <div class="method-step-content">
+          <h4>Projeto de aprovação e executivo</h4>
+          <p>Projetos integrados — arquitetura, interiores, paisagismo, luminotécnico, acessibilidade — sob a mesma régua técnica.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="method-step-num">04</div>
+        <div class="method-step-content">
+          <h4>Acompanhamento até a entrega</h4>
+          <p>Continuamos como braço técnico da sua operação para que cronograma, qualidade e viabilidade financeira andem juntos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── CASES ── -->
+<section class="section bg-soft" id="cases">
+  <div class="section-inner">
+    <span class="eyebrow">Projetos em operação</span>
+    <h2 class="section-heading" style="margin-bottom:40px">Resultado que se <em>sente.</em></h2>
+    <div class="three-col">
+
+      <!-- Matíz Residence -->
+      <div class="case-card">
+        <div class="case-card-img-wrap">
+          <div class="img-ph case-card-img" style="aspect-ratio:4/3">
+            <span>Case · Matíz Residence</span>
+            <span class="img-ph-file">case-matiz-residence.webp</span>
+            <span class="img-ph-dim">800 × 600 · WebP</span>
+          </div>
+        </div>
+        <div class="case-card-body">
+          <h3 class="case-card-name">Matíz Residence</h3>
+          <p class="case-card-meta">Uberlândia &middot; MG &middot; Residencial</p>
+          <p class="case-label">Desafio</p>
+          <p class="case-text">Desenvolvimento integral do produto, da concepção das tipologias à coordenação executiva de todas as disciplinas.</p>
+          <p class="case-label">O resultado que se sente</p>
+          <ul class="case-results">
+            <li>
+              <strong>Aceleração de cronograma</strong>
+              Antecipação de 90 dias no fluxo geral do empreendimento através da nossa gestão de processos.
+            </li>
+            <li>
+              <strong>Eficiência financeira</strong>
+              Redução de 15% nos custos de projeto, otimizando o investimento sem comprometer a qualidade técnica.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Unique Novo Mundo -->
+      <div class="case-card">
+        <div class="case-card-img-wrap">
+          <div class="img-ph case-card-img" style="aspect-ratio:4/3">
+            <span>Case · Unique Novo Mundo</span>
+            <span class="img-ph-file">case-unique-novo-mundo.webp</span>
+            <span class="img-ph-dim">800 × 600 · WebP</span>
+          </div>
+        </div>
+        <div class="case-card-body">
+          <h3 class="case-card-name">Unique Novo Mundo</h3>
+          <p class="case-card-meta">INC Empreendimentos &middot; Uberlândia &middot; MG</p>
+          <p class="case-label">Desafio</p>
+          <p class="case-text">Desenvolvimento do projeto para aprovação legal, priorizando a agilidade processual e a conformidade técnica.</p>
+          <p class="case-label">O resultado que se sente</p>
+          <ul class="case-results">
+            <li>
+              <strong>Segurança normativa</strong>
+              Aplicação das legislações vigentes, garantindo um processo de aprovação assertivo e sem surpresas.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Casa Alta -->
+      <div class="case-card">
+        <div class="case-card-img-wrap">
+          <div class="img-ph case-card-img" style="aspect-ratio:4/3">
+            <span>Case · Casa Alta</span>
+            <span class="img-ph-file">case-casa-alta.webp</span>
+            <span class="img-ph-dim">800 × 600 · WebP</span>
+          </div>
+        </div>
+        <div class="case-card-body">
+          <h3 class="case-card-name">Casa Alta</h3>
+          <p class="case-card-meta">Perplan &middot; Uberlândia &middot; MG</p>
+          <p class="case-label">Desafio</p>
+          <p class="case-text">Desenvolvimento do projeto para aprovação legal, com foco total na inteligência normativa e conformidade técnica para viabilização do produto.</p>
+          <p class="case-label">O resultado que se sente</p>
+          <ul class="case-results">
+            <li>
+              <strong>Segurança normativa</strong>
+              Aplicação das legislações vigentes, garantindo um processo de aprovação assertivo e sem surpresas.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── QUEM ESTÁ POR TRÁS ── -->
+<section class="section" id="sobre">
+  <div class="section-inner">
+    <div class="two-col center">
+      <div>
+        <span class="eyebrow">Giovana Liserre &middot; Thais Graminha</span>
+        <h2 class="section-heading">Um time que <em>nasceu</em> na incorporação.</h2>
+        <p class="section-body">Giovana e Thais trazem a vivência de mais de 15 anos dentro de incorporadoras para o Método Fagulha. Com vasta experiência em Produto e Projetos, conhecem cada lacuna que pode ser otimizada e entendem que um parceiro precisa facilitar o dia a dia das incorporadoras.</p>
+        <a href="#contato" class="btn-outline-azul" style="margin-top:28px">Conversar com a Fagulha</a>
+      </div>
+      <img src="../images/fundadoras-fagulha.webp" alt="Thais Graminha e Giovana Liserre — fundadoras do Estúdio Fagulha" class="img-service" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ── FORMULÁRIO ── -->
+<section class="form-section" id="contato">
+  <div class="form-grid">
+    <div>
+      <span class="eyebrow light">Próximo passo</span>
+      <h2 class="form-heading">Vamos <em>conversar</em> sobre o seu próximo projeto?</h2>
+      <p class="form-body">Nos conte um pouco sobre suas expectativas. Será um prazer agendar um papo para entendermos como podemos atuar juntos!</p>
+      <p class="form-wp">Prefere o WhatsApp? <a href="https://api.whatsapp.com/send?phone=5516991690303" target="_blank" rel="noopener">+55 16 9 9169-0303</a></p>
+    </div>
+    <div class="form-box">
+      <div class="form-box-title">Comece pelo método</div>
+      <div class="form-box-sub">Resposta em até 1 dia útil.</div>
+      <form name="metodo-contato" method="post" action="#">
+        <input  class="field" type="text"  name="nome"      placeholder="Nome completo"               required>
+        <input  class="field" type="text"  name="empresa"   placeholder="Empresa ou incorporadora"     required>
+        <input  class="field" type="email" name="email"     placeholder="E-mail"                       required>
+        <input  class="field" type="tel"   name="whatsapp"  placeholder="WhatsApp">
+        <input  class="field" type="text"  name="cidade"    placeholder="Cidade do próximo lançamento">
+        <select class="field" name="tipo" required>
+          <option value="" disabled selected>Tipo de projeto</option>
+          <option value="Residencial">Residencial</option>
+          <option value="Comercial">Comercial</option>
+          <option value="Corporativo">Corporativo</option>
+        </select>
+        <select class="field" name="etapa">
+          <option value="" disabled selected>Em que etapa o projeto está?</option>
+          <option value="Concepção">Concepção</option>
+          <option value="Viabilidade">Estudo de Viabilidade</option>
+          <option value="Aprovação">Projeto de Aprovação</option>
+          <option value="Executivo">Projeto Executivo</option>
+          <option value="Outra">Outra etapa</option>
+        </select>
+        <button type="submit" class="form-submit">
+          Quero falar com a Fagulha &rarr;
+        </button>
+        <p class="form-privacy">Seus dados não são compartilhados. Sem spam.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-bar">
+    <a href="../index.html">
+      <img src="../images/Logotipo_Est_Fagulha_horizontal_brown.png" alt="Estúdio Fagulha" width="180" height="auto">
+    </a>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/estudiofagulha.arq/" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="../images/IG.webp" alt="Instagram" width="24" height="24">
+      </a>
+      <a href="https://www.facebook.com/p/Est%C3%BAdio-Fagulha-61559311312057/" target="_blank" rel="noopener" aria-label="Facebook">
+        <img src="../images/FB.webp" alt="Facebook" width="24" height="24">
+      </a>
+      <a href="https://www.linkedin.com/company/est%C3%BAdio-fagulha/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <img src="../images/LI.webp" alt="LinkedIn" width="24" height="24">
+      </a>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-copy">Copyright &copy; 2025 Est&uacute;dio Fagulha</div>
+</footer>
+
+<script>
+  // Navbar ao scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // ── Paralaxe hero por movimento do mouse ──
+  const heroEl   = document.querySelector('.hero');
+  const textLayer = heroEl.querySelector('.hero-text-layer');
+  const imgWrap   = heroEl.querySelector('.hero-img-wrap');
+
+  // Valores alvo e atuais (lerp suave)
+  let tx = 0, ty = 0;
+  let ctX = 0, ctY = 0; // texto atual
+  let ciX = 0, ciY = 0; // imagem atual
+  let inside = false;
+
+  heroEl.addEventListener('mouseenter', () => { inside = true; });
+  heroEl.addEventListener('mouseleave', () => { inside = false; tx = 0; ty = 0; });
+
+  heroEl.addEventListener('mousemove', (e) => {
+    const r  = heroEl.getBoundingClientRect();
+    tx = (e.clientX - r.left)  / r.width  - 0.5; // -0.5 a +0.5
+    ty = (e.clientY - r.top)   / r.height - 0.5;
+  });
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  (function tick() {
+    requestAnimationFrame(tick);
+
+    // Texto: camada frontal — movimento menor
+    ctX = lerp(ctX, tx * 18, 0.07);
+    ctY = lerp(ctY, ty * 10, 0.07);
+
+    // Imagem: camada de fundo — movimento maior, leve oposição vertical
+    ciX = lerp(ciX, tx * 32, 0.05);
+    ciY = lerp(ciY, ty * 22, 0.05);
+
+    textLayer.style.transform = `translate(${ctX}px, ${ctY}px)`;
+    imgWrap.style.transform   = `translate(${ciX}px, ${ciY}px)`;
+  })();
+</script>
+
+</body>
+</html>

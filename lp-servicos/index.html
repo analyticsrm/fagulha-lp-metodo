@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Serviços | Estúdio Fagulha</title>
+  <meta name="description" content="Projetos de arquitetura, interiores, paisagismo, luminotécnico e acessibilidade para incorporadoras e construtoras em todo o Brasil.">
+  <meta property="og:title" content="Serviços | Estúdio Fagulha">
+  <meta property="og:description" content="Projetos de arquitetura, interiores, paisagismo, luminotécnico e acessibilidade para incorporadoras e construtoras em todo o Brasil.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
+  <style>
+    /* ── FONTES ── */
+    @font-face {
+      font-family: 'PlayfairDisplay';
+      src: url('../fonts/PlayfairDisplay-Italic.woff2') format('woff2');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Neurialgrotesk';
+      src: url('../fonts/NeurialGrotesk-Light.otf') format('opentype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Neurialgrotesk';
+      src: url('../fonts/NeurialGrotesk-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Neurialgrotesk';
+      src: url('../fonts/NeurialGrotesk-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Neurialgrotesk';
+      src: url('../fonts/NeurialGrotesk-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ── BASE ── */
+    body {
+      background-color: #e4dcd2;
+      color: #57504d;
+      font-family: 'Neurialgrotesk', Arial, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ── TOKENS ── */
+    :root {
+      --creme:       #e4dcd2;
+      --creme-soft:  #ede8e0;
+      --vermelho:    #ab4c41;
+      --vermelho-dk: #9a423b;
+      --azul:        #275d7b;
+      --azul-dk:     #1e4c65;
+      --marrom:      #57504d;
+      --marrom-dk:   #3d3532;
+      --linha:       #c9bfaa;
+      --max:         1280px;
+    }
+
+    /* ── UTILIDADES ── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--vermelho);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .eyebrow.light { color: rgba(228,220,210,.65); }
+
+    h1, h2, h3, h4 {
+      font-family: 'PlayfairDisplay', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    img { display: block; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .navbar.scrolled {
+      background: rgba(228,220,210,.96);
+      box-shadow: 0 1px 0 var(--linha);
+      backdrop-filter: blur(4px);
+    }
+    .navbar-logo img { height: 36px; width: auto; }
+    .navbar-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--vermelho);
+      color: #e4dcd2;
+      padding: 10px 22px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .navbar-cta:hover { background: var(--vermelho-dk); }
+    .navbar-cta img { width: 16px; height: auto; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      padding: 140px 40px 80px;
+      display: flex;
+      align-items: center;
+      background-color: var(--creme-soft);
+    }
+    .hero-grid {
+      max-width: var(--max);
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-heading {
+      font-size: clamp(34px, 4.5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+      color: var(--marrom-dk);
+      margin-bottom: 22px;
+    }
+    .hero-heading em { color: var(--vermelho); font-style: italic; }
+    .hero-body {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--marrom);
+      margin-bottom: 36px;
+      max-width: 500px;
+    }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--vermelho);
+      color: #e4dcd2;
+      padding: 14px 28px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-primary:hover { background: var(--vermelho-dk); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--azul);
+      padding: 13px 26px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1.5px solid var(--azul);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .btn-outline:hover { background: var(--azul); color: #e4dcd2; }
+
+    .hero-mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 5px;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    .hero-mosaic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── SERVICE NAV ── */
+    .service-nav {
+      position: sticky;
+      top: 76px;
+      z-index: 90;
+      background: var(--creme);
+      border-top: 1px solid var(--linha);
+      border-bottom: 1px solid var(--linha);
+      overflow-x: auto;
+    }
+    .service-nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      white-space: nowrap;
+    }
+    .service-nav-link {
+      padding: 16px 24px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--marrom);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    .service-nav-link:hover,
+    .service-nav-link.ativo {
+      color: var(--vermelho);
+      border-bottom-color: var(--vermelho);
+    }
+
+    /* ── SEÇÃO GENÉRICA ── */
+    .section { padding: 96px 40px; }
+    .section.bg-soft   { background: var(--creme-soft); }
+    .section.bg-azul   { background: var(--azul); color: var(--creme); }
+    .section.bg-verm   { background: var(--vermelho); color: var(--creme); }
+
+    .section.bg-azul .section-heading,
+    .section.bg-verm .section-heading { color: var(--creme); }
+    .section.bg-azul .section-heading em,
+    .section.bg-verm .section-heading em { color: rgba(228,220,210,.8); }
+    .section.bg-azul .section-body,
+    .section.bg-verm .section-body { color: rgba(228,220,210,.85); }
+
+    .section-inner { max-width: var(--max); margin: 0 auto; }
+
+    .section-heading {
+      font-size: clamp(26px, 3.5vw, 40px);
+      line-height: 1.1;
+      color: var(--marrom-dk);
+      margin-bottom: 14px;
+    }
+    .section-heading em { color: var(--vermelho); }
+
+    .section-body {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--marrom);
+      max-width: 540px;
+    }
+
+    /* ── GRIDS ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .two-col.center { align-items: center; }
+
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .four-col  { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+    /* ── IMAGENS ── */
+    .img-service {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+    .img-banner {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      margin-top: 40px;
+    }
+
+    /* ── SERVICE CARDS ── */
+    .cards-list { display: flex; flex-direction: column; gap: 12px; }
+
+    .card {
+      background: var(--creme-soft);
+      border: 1px solid var(--linha);
+      padding: 24px;
+    }
+    .card.on-dark {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.2);
+    }
+    .card-num {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--vermelho);
+      margin-bottom: 8px;
+    }
+    .card.on-dark .card-num { color: rgba(228,220,210,.55); }
+
+    .card h4 {
+      font-size: 19px;
+      line-height: 1.2;
+      color: var(--azul);
+      margin-bottom: 12px;
+    }
+    .card.on-dark h4 { color: var(--creme); }
+
+    .card ul { list-style: none; margin-bottom: 16px; }
+    .card ul li {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--marrom);
+      padding: 6px 0 6px 18px;
+      position: relative;
+      border-bottom: 1px dotted var(--linha);
+    }
+    .card.on-dark ul li {
+      color: rgba(228,220,210,.82);
+      border-bottom-color: rgba(228,220,210,.12);
+    }
+    .card ul li:last-child { border-bottom: none; }
+    .card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 7px;
+      height: 7px;
+      background: var(--vermelho);
+      transform: rotate(45deg);
+    }
+
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--vermelho);
+      text-decoration: none;
+      transition: gap .2s;
+    }
+    .card.on-dark .cta-link { color: var(--creme); }
+    .cta-link:hover { gap: 14px; }
+
+    /* mini cards lado a lado */
+    .mini-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .mini-row .card { flex: 1; min-width: 150px; }
+    .mini-row .card p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--marrom);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    /* ── PILARES ── */
+    .pillar {
+      background: rgba(228,220,210,.12);
+      border: 1px solid rgba(228,220,210,.18);
+      padding: 28px;
+    }
+    .pillar h4 {
+      font-size: 18px;
+      color: #e4dcd2;
+      margin-bottom: 10px;
+    }
+    .pillar p {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(228,220,210,.8);
+      line-height: 1.65;
+    }
+
+    /* ── NÚMEROS ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 56px;
+      border-top: 1px solid rgba(228,220,210,.18);
+    }
+    .stat {
+      padding: 36px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(228,220,210,.18);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-size: 52px;
+      line-height: 1;
+      color: var(--creme);
+      margin-bottom: 8px;
+    }
+    .stat-lab {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(228,220,210,.65);
+    }
+
+    /* ── PORTFÓLIO TILES ── */
+    .tile { aspect-ratio: 1; overflow: hidden; }
+    .tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+    .tile:hover img { transform: scale(1.04); }
+
+    /* ── DEPOIMENTOS ── */
+    .testimonial {
+      background: var(--creme);
+      border-left: 4px solid var(--vermelho);
+      padding: 28px;
+    }
+    .testimonial-quote {
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--marrom-dk);
+      margin-bottom: 16px;
+    }
+    .testimonial-quote::before {
+      content: '\201C';
+      font-size: 44px;
+      line-height: 0;
+      vertical-align: -14px;
+      color: var(--vermelho);
+      margin-right: 4px;
+    }
+    .testimonial-author {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--marrom);
+    }
+    .testimonial-author strong { color: var(--vermelho); }
+
+    /* ── DIVISOR ── */
+    .divider { border: none; border-top: 1px solid var(--linha); }
+
+    /* ── FORMULÁRIO ── */
+    .form-section {
+      padding: 96px 40px;
+      background: var(--vermelho);
+      color: var(--creme);
+    }
+    .form-grid {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .form-heading {
+      font-size: clamp(26px, 3.5vw, 38px);
+      line-height: 1.1;
+      color: var(--creme);
+      margin-bottom: 16px;
+    }
+    .form-heading em { color: rgba(228,220,210,.8); }
+    .form-body {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(228,220,210,.85);
+      margin-bottom: 24px;
+    }
+    .form-wp {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(228,220,210,.55);
+    }
+    .form-wp a { color: rgba(228,220,210,.85); text-decoration: none; }
+    .form-wp a:hover { color: #e4dcd2; }
+
+    .form-box {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(228,220,210,.18);
+      padding: 32px;
+    }
+    .form-box-title {
+      font-size: 22px;
+      color: var(--creme);
+      margin-bottom: 6px;
+    }
+    .form-box-sub {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(228,220,210,.65);
+      margin-bottom: 22px;
+    }
+    .field {
+      width: 100%;
+      background: rgba(228,220,210,.08);
+      border: 1px solid rgba(228,220,210,.22);
+      padding: 12px 14px;
+      color: var(--creme);
+      font-family: 'Neurialgrotesk', Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      margin-bottom: 10px;
+      outline: none;
+      appearance: none;
+      transition: border-color .2s;
+    }
+    .field::placeholder { color: rgba(228,220,210,.42); }
+    .field:focus { border-color: rgba(228,220,210,.55); }
+    .field option { background: var(--vermelho-dk); color: #e4dcd2; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--azul);
+      color: var(--creme);
+      border: none;
+      padding: 14px;
+      font-family: 'Neurialgrotesk', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .form-submit:hover { background: var(--azul-dk); }
+
+    .form-privacy {
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(228,220,210,.45);
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: transparent;
+      padding: 60px 40px 40px;
+      border-top: 1px solid var(--linha);
+    }
+    .footer-bar {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-bar img { height: 30px; width: auto; }
+    .footer-social { display: flex; gap: 14px; align-items: center; }
+    .footer-social a { opacity: .55; transition: opacity .2s; }
+    .footer-social a:hover { opacity: 1; }
+    .footer-social img { width: 24px; height: 24px; object-fit: contain; }
+    .footer-divider {
+      max-width: var(--max);
+      margin: 24px auto 0;
+      border: none;
+      border-top: 1px solid var(--linha);
+    }
+    .footer-copy {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px 0 0;
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(87, 80, 77, .45);
+      letter-spacing: .5px;
+    }
+
+    /* ── WHATSAPP FLUTUANTE ── */
+    .wpp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 200;
+      width: 54px;
+      height: 54px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,.22);
+      transition: transform .2s;
+      text-decoration: none;
+    }
+    .wpp-float:hover { transform: scale(1.07); }
+    .wpp-float svg { width: 27px; height: 27px; fill: #fff; }
+
+    /* ── RESPONSIVO ── */
+    @media (max-width: 960px) {
+      .navbar { padding: 16px 24px; }
+      .hero { padding: 120px 24px 60px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-mosaic { aspect-ratio: 16/9; }
+      .section { padding: 72px 24px; }
+      .two-col { grid-template-columns: 1fr; gap: 36px; }
+      .three-col { grid-template-columns: 1fr; }
+      .four-col { grid-template-columns: repeat(2, 1fr); }
+      .stats { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid rgba(228,220,210,.18); }
+      .stat:last-child { border-bottom: none; }
+      .form-section { padding: 72px 24px; }
+      .form-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer { padding: 40px 24px 28px; }
+      .footer-bar { flex-direction: column; align-items: flex-start; }
+      .service-nav-inner { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- WhatsApp flutuante -->
+<a href="https://api.whatsapp.com/send?phone=5516991690303" target="_blank" rel="noopener" class="wpp-float" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar" id="navbar">
+  <a href="../index.html" class="navbar-logo">
+    <img src="../images/Logotipo_Est_Fagulha_horizontal_brown.png" alt="Estúdio Fagulha" width="220" height="auto">
+  </a>
+  <a href="https://api.whatsapp.com/send?phone=5516991690303" target="_blank" rel="noopener" class="navbar-cta">
+    fale conosco
+    <img src="../images/Grafismo_Fagulha_Icone_OffWhite.png" alt="" width="16" height="16">
+  </a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="topo">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Estúdio Fagulha &middot; Serviços</span>
+      <h1 class="hero-heading">Soluções arquitetônicas <em>sob medida</em> para cada fase do seu projeto.</h1>
+      <p class="hero-body">Arquitetura, interiores, paisagismo, luminotécnico e acessibilidade na mesma régua técnica. Contrate o que faz sentido para a fase em que o seu lançamento está agora.</p>
+      <div class="hero-ctas">
+        <a href="#servicos" class="btn-primary">Ver todos os serviços</a>
+        <a href="#contato" class="btn-outline">Pedir orçamento</a>
+      </div>
+    </div>
+    <div class="hero-mosaic">
+      <img src="../images/BILD_Flamboyant_Sala-e-cozinha_HR.webp" alt="Projeto de interiores" loading="eager">
+      <img src="../images/720_EXT05_PORTICO_HR--R00~1.webp"        alt="Projeto arquitetônico"  loading="eager">
+      <img src="../images/BILD_Flamboyant_Piscina_HR-02.webp"      alt="Área de lazer"          loading="eager">
+      <img src="../images/COS_09_Brinquedoteca_R03_LR.webp"        alt="Projeto de interiores"  loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- ── NAV INTERNA ── -->
+<nav class="service-nav" id="servicos" aria-label="Serviços">
+  <div class="service-nav-inner">
+    <a href="#arquitetura"    class="service-nav-link">Arquitetura</a>
+    <a href="#interiores"     class="service-nav-link">Interiores</a>
+    <a href="#paisagismo"     class="service-nav-link">Paisagismo</a>
+    <a href="#acessibilidade" class="service-nav-link">Acessibilidade</a>
+    <a href="#luminotecnico"  class="service-nav-link">Luminotécnico</a>
+  </div>
+</nav>
+
+<!-- ── ARQUITETURA ── -->
+<section class="section" id="arquitetura">
+  <div class="section-inner">
+    <span class="eyebrow">01 &middot; Projetos de Arquitetura</span>
+    <h2 class="section-heading">Da viabilidade ao executivo, <em>sem ruído.</em></h2>
+    <p class="section-body" style="margin-bottom:40px">O ponto onde tudo começa e onde mais se perde dinheiro quando feito errado. Cuidamos das três fases que definem se o seu lançamento vai performar ou não.</p>
+    <div class="three-col" style="margin-bottom:32px">
+      <div class="card">
+        <h4>Estudo de Viabilidade</h4>
+        <ul>
+          <li>Análise de potencial construtivo</li>
+          <li>Leitura de mercado e produto</li>
+          <li>Enquadramento legal</li>
+          <li>Indicadores financeiros</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Projeto de Aprovação</h4>
+        <ul>
+          <li>Documentação para prefeitura</li>
+          <li>Adequação ao código de obras local</li>
+          <li>Compatibilização com licenças</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Projeto Executivo</h4>
+        <ul>
+          <li>Detalhamento construtivo</li>
+          <li>Compatibilização com complementares</li>
+          <li>Entregáveis prontos para obra</li>
+        </ul>
+      </div>
+    </div>
+    <a href="#contato" class="btn-primary">Pedir orçamento</a>
+    <img src="../images/720_EXT05_PORTICO_HR--R00~1.webp" alt="Empreendimento residencial" class="img-banner" loading="lazy">
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── INTERIORES ── -->
+<section class="section bg-soft" id="interiores">
+  <div class="section-inner">
+    <div class="two-col center">
+      <img src="../images/FINAL_APTO2_THG_ARQUITETURA_R01.webp" alt="Projeto de interiores" class="img-service" loading="lazy">
+      <div>
+        <span class="eyebrow">02 &middot; Projeto de Interiores</span>
+        <h2 class="section-heading">Áreas comuns que <em>vendem o empreendimento.</em></h2>
+        <p class="section-body">Lobby, fitness, lounge, brinquedoteca, salão de festas. Os ambientes que aparecem no material de venda. Cada espaço tratado com criação e executivo.</p>
+        <div class="mini-row">
+          <div class="card">
+            <h4>Criação</h4>
+            <p>Conceito, paleta, moodboard, materiais.</p>
+          </div>
+          <div class="card">
+            <h4>Executivo</h4>
+            <p>Detalhamento, especificação, marcenaria.</p>
+          </div>
+        </div>
+        <a href="#contato" class="btn-primary" style="margin-top:24px">Pedir orçamento</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── PAISAGISMO ── -->
+<section class="section" id="paisagismo">
+  <div class="section-inner">
+    <div class="two-col center">
+      <div>
+        <span class="eyebrow">03 &middot; Paisagismo</span>
+        <h2 class="section-heading">O verde que <em>diferencia</em> o seu empreendimento.</h2>
+        <p class="section-body">Piscina, áreas externas, portaria, espelho d'água. Projeto paisagístico em três fases: criação, aprovação quando exigido e executivo. Pensado para valorização e manutenção real.</p>
+        <div class="mini-row">
+          <div class="card">
+            <h4>Criação</h4>
+          </div>
+          <div class="card">
+            <h4>Aprovação</h4>
+          </div>
+          <div class="card">
+            <h4>Executivo</h4>
+          </div>
+        </div>
+        <a href="#contato" class="btn-primary" style="margin-top:24px">Pedir orçamento</a>
+      </div>
+      <img src="../images/BILD_Flamboyant_Piscina_HR-02.webp" alt="Área de lazer com piscina" class="img-service" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── ACESSIBILIDADE ── -->
+<section class="section bg-azul" id="acessibilidade">
+  <div class="section-inner">
+    <div class="two-col center">
+      <div>
+        <span class="eyebrow light">04 &middot; Acessibilidade</span>
+        <h2 class="section-heading">Conformidade com a NBR&nbsp;9050, <em>sem improvisos.</em></h2>
+        <p class="section-body">Projeto executivo de acessibilidade integrado ao arquitetônico. Reduz risco de não conformidade na aprovação e protege a incorporadora em pós-obra.</p>
+        <div class="card on-dark" style="margin-top:28px">
+          <h4>Projeto Executivo de Acessibilidade</h4>
+          <ul>
+            <li>Atendimento completo à NBR 9050</li>
+            <li>Compatibilização com o projeto arquitetônico</li>
+            <li>Memorial técnico para aprovação</li>
+          </ul>
+          <a href="#contato" class="cta-link" data-servico="Acessibilidade">Pedir orçamento &rarr;</a>
+        </div>
+      </div>
+      <img src="../images/CAM02_FINAIS_PISCINA_SINOP_ESTUDIO_FAGULHA_R00.webp" alt="Projeto residencial" class="img-service" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── LUMINOTÉCNICO ── -->
+<section class="section bg-soft" id="luminotecnico">
+  <div class="section-inner">
+    <div class="two-col center">
+      <img src="../images/COS_09_Brinquedoteca_R03_LR.webp" alt="Projeto de interiores com iluminação" class="img-service" loading="lazy">
+      <div>
+        <span class="eyebrow">05 &middot; Luminotécnico</span>
+        <h2 class="section-heading">Iluminação que <em>valoriza</em> cada ambiente.</h2>
+        <p class="section-body">Projeto luminotécnico integrado à arquitetura e aos interiores. Temperatura de cor por ambiente, eficiência energética e integração com o projeto elétrico. Cada espaço pensado para performar tanto na foto quanto na entrega.</p>
+        <div class="card" style="margin-top:28px">
+          <h4>Projeto Luminotécnico</h4>
+          <ul>
+            <li>Especificação de luminárias por ambiente</li>
+            <li>Temperatura de cor e eficiência energética</li>
+            <li>Integração com projeto elétrico</li>
+          </ul>
+          <a href="#contato" class="cta-link" data-servico="Projeto Luminotécnico">Pedir orçamento &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DIFERENCIAIS + NÚMEROS ── -->
+<section class="section bg-azul">
+  <div class="section-inner">
+    <span class="eyebrow light">Por que a Fagulha</span>
+    <h2 class="section-heading" style="margin-bottom:48px">Não somos só projeto. <em>Somos operação técnica.</em></h2>
+    <div class="three-col">
+      <div class="pillar">
+        <h4>Visão de incorporadora</h4>
+        <p>As fundadoras atuaram dentro de incorporadoras nas áreas de Produto e Projetos. Entendem VGV, cronograma e viabilidade por dentro, não de fora.</p>
+      </div>
+      <div class="pillar">
+        <h4>100% remoto, todo o Brasil</h4>
+        <p>Operação em mais de 60 cidades. A mesma régua técnica em qualquer estado, sem custo de deslocamento e sem depender de escritório local.</p>
+      </div>
+      <div class="pillar">
+        <h4>Processo desburocratizado</h4>
+        <p>Projetos integrados, disciplinas compatibilizadas desde o início. Cronograma blindado, sem gargalos e sem revisões que não param.</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">+15</div>
+        <div class="stat-lab">anos de mercado</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">+40</div>
+        <div class="stat-lab">produtos em 2024 e 2025</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">+60</div>
+        <div class="stat-lab">cidades atendidas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEPOIMENTOS ── -->
+<section class="section bg-soft">
+  <div class="section-inner">
+    <span class="eyebrow">Quem já trabalhou com a Fagulha</span>
+    <h2 class="section-heading" style="margin-bottom:32px">Resultados que <em>falam por si.</em></h2>
+    <div class="two-col">
+      <div class="testimonial">
+        <p class="testimonial-quote">O estudo de viabilidade que a Fagulha entregou mudou completamente o mix do produto. Conseguimos aumentar o VGV sem precisar mudar o terreno.</p>
+        <div class="testimonial-author"><strong>Em breve</strong> &middot; Depoimento real</div>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-quote">Trabalhamos com elas do executivo ao acompanhamento de obra. Não houve nenhuma revisão por erro de compatibilização durante toda a execução.</p>
+        <div class="testimonial-author"><strong>Em breve</strong> &middot; Depoimento real</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FORMULÁRIO ── -->
+<section class="form-section" id="contato">
+  <div class="form-grid">
+    <div>
+      <span class="eyebrow light">Próximo passo</span>
+      <h2 class="form-heading">Diga qual serviço você precisa. <em>A gente responde em 1 dia útil.</em></h2>
+      <p class="form-body">Você não precisa fechar tudo de uma vez. Comece pelo serviço da fase em que o seu projeto está e a gente avança a partir daí.</p>
+      <p class="form-wp">Prefere o WhatsApp? <a href="https://api.whatsapp.com/send?phone=5516991690303" target="_blank" rel="noopener">+55 16 9 9169-0303</a></p>
+    </div>
+    <div class="form-box">
+      <div class="form-box-title">Pedir orçamento</div>
+      <div class="form-box-sub">Selecione o serviço e preparamos uma resposta personalizada.</div>
+      <form name="orcamento-servicos" method="post" action="#">
+        <input class="field" type="text"  name="nome"    placeholder="Nome completo"          required>
+        <input class="field" type="text"  name="empresa" placeholder="Empresa ou incorporadora" required>
+        <input class="field" type="email" name="email"   placeholder="E-mail"                  required>
+        <input class="field" type="tel"   name="whatsapp" placeholder="WhatsApp">
+        <select class="field" name="servico" id="campo-servico" required>
+          <option value="" disabled selected>Selecione o serviço</option>
+          <option value="Estudo de Viabilidade">Estudo de Viabilidade</option>
+          <option value="Projeto de Aprovação">Projeto de Aprovação</option>
+          <option value="Projeto Executivo">Projeto Executivo</option>
+          <option value="Interiores - Criação">Projeto de Interiores (Criação)</option>
+          <option value="Interiores - Executivo">Projeto de Interiores (Executivo)</option>
+          <option value="Paisagismo">Paisagismo</option>
+          <option value="Acessibilidade">Acessibilidade</option>
+          <option value="Projeto Luminotécnico">Projeto Luminotécnico</option>
+          <option value="Mais de um serviço">Mais de um serviço</option>
+        </select>
+        <input class="field" type="text"  name="cidade"   placeholder="Cidade do projeto">
+        <textarea class="field" name="mensagem" placeholder="Mensagem (opcional)" rows="3" style="resize:vertical"></textarea>
+        <button type="submit" class="form-submit">
+          Quero meu orçamento &rarr;
+        </button>
+        <p class="form-privacy">Seus dados não são compartilhados. Sem spam.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-bar">
+    <a href="../index.html">
+      <img src="../images/Logotipo_Est_Fagulha_horizontal_brown.png" alt="Estúdio Fagulha" width="180" height="auto">
+    </a>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/estudiofagulha.arq/" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="../images/IG.webp" alt="Instagram" width="24" height="24">
+      </a>
+      <a href="https://www.facebook.com/p/Est%C3%BAdio-Fagulha-61559311312057/" target="_blank" rel="noopener" aria-label="Facebook">
+        <img src="../images/FB.webp" alt="Facebook" width="24" height="24">
+      </a>
+      <a href="https://www.linkedin.com/company/est%C3%BAdio-fagulha/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <img src="../images/LI.webp" alt="LinkedIn" width="24" height="24">
+      </a>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-copy">Copyright &copy; 2025 Est&uacute;dio Fagulha</div>
+</footer>
+
+<script>
+  // Navbar ao scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // Highlight da nav interna por seção visível
+  const navLinks = document.querySelectorAll('.service-nav-link');
+  const targets  = ['arquitetura', 'interiores', 'paisagismo', 'acessibilidade', 'luminotecnico'];
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach(link => {
+        link.classList.toggle('ativo', link.getAttribute('href') === '#' + entry.target.id);
+      });
+    });
+  }, { rootMargin: '-35% 0px -60% 0px' });
+
+  targets.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) io.observe(el);
+  });
+
+  // Pre-seleciona serviço no formulário quando clica em "Pedir orçamento" de um card
+  document.querySelectorAll('.cta-link[data-servico]').forEach(link => {
+    link.addEventListener('click', () => {
+      const sel = document.getElementById('campo-servico');
+      if (sel) sel.value = link.dataset.servico;
+    });
+  });
+</script>
+
+</body>
+</html>
