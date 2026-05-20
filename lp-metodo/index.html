@@ -170,19 +170,63 @@
       max-width: 500px;
     }
     .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
-    .hero-img-wrap {
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      will-change: transform;
+    /* ── HERO COLLAGE ── */
+    .hero-collage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
     }
-    .hero-img {
+    .hero-text-layer {}
+
+    .hero-blueprint {
+      position: absolute;
+      bottom: 4%;
+      left: 0%;
+      width: 78%;
+      opacity: .11;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-photo {
+      position: absolute;
+      overflow: hidden;
+      z-index: 2;
+      box-shadow: 0 12px 40px rgba(0,0,0,.32);
+    }
+    .hero-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
-    .hero-text-layer {
-      will-change: transform;
+    /* Torre alta — topo centro */
+    .hero-photo-1 {
+      top: 0;
+      left: 22%;
+      width: 46%;
+      height: 58%;
+    }
+    /* Interior — meio esquerda */
+    .hero-photo-2 {
+      top: 34%;
+      left: -2%;
+      width: 52%;
+      height: 40%;
+    }
+    /* Edifício — base direita */
+    .hero-photo-3 {
+      bottom: 0;
+      right: -2%;
+      width: 64%;
+      height: 40%;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 24%;
+      right: -18%;
+      width: 66%;
+      z-index: 4;
+      pointer-events: none;
     }
 
     /* ── BOTÕES ── */
@@ -290,6 +334,14 @@
       border: 1px solid rgba(228,220,210,.18);
       padding: 28px;
     }
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+      display: block;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
+    }
     .pillar-num {
       font-size: 10px;
       font-weight: 500;
@@ -299,7 +351,7 @@
       margin-bottom: 14px;
     }
     .pillar h4 {
-      font-size: 18px;
+      font-size: 22px;
       color: var(--creme);
       margin-bottom: 10px;
     }
@@ -358,7 +410,7 @@
       line-height: 1;
     }
     .method-step-content h4 {
-      font-size: 20px;
+      font-size: 24px;
       color: var(--azul);
       margin-bottom: 8px;
     }
@@ -694,12 +746,18 @@
         <a href="https://api.whatsapp.com/send?phone=5516991690303" target="_blank" rel="noopener" class="btn-outline">Falar no WhatsApp</a>
       </div>
     </div>
-    <div class="hero-img-wrap">
-      <div class="img-ph hero-img" id="hero-parallax" style="aspect-ratio:4/3">
-        <span>Imagem hero · perspectiva de empreendimento</span>
-        <span class="img-ph-file">hero-lp-metodo.webp</span>
-        <span class="img-ph-dim">1920 × 1080 · WebP · &lt;200 KB</span>
+    <div class="hero-collage" id="hero-parallax">
+      <img src="../images/hero-blueprint.webp"      alt="" class="hero-blueprint" aria-hidden="true" loading="eager">
+      <div class="hero-photo hero-photo-1">
+        <img src="../images/hero-foto-01.webp" alt="Torre residencial" loading="eager">
       </div>
+      <div class="hero-photo hero-photo-2">
+        <img src="../images/hero-foto-03.webp" alt="Área de convivência" loading="eager">
+      </div>
+      <div class="hero-photo hero-photo-3">
+        <img src="../images/hero-foto-02.webp" alt="Empreendimento residencial" loading="eager">
+      </div>
+      <img src="../images/hero-overlay-texto.webp" alt="" class="hero-overlay" aria-hidden="true" loading="eager">
     </div>
   </div>
 </section>
@@ -718,11 +776,7 @@
 <section class="section" id="metodo">
   <div class="section-inner">
     <div class="two-col center">
-      <div class="img-ph img-service" style="aspect-ratio:4/3">
-        <span>Imagem do método · projeto arquitetônico</span>
-        <span class="img-ph-file">metodo-projeto.webp</span>
-        <span class="img-ph-dim">800 × 600 · WebP</span>
-      </div>
+      <img src="../images/metodo-fagulha.svg" alt="Método Fagulha" class="img-service" style="object-fit:contain" loading="lazy">
       <div>
         <span class="eyebrow">O Método</span>
         <h2 class="section-heading">Não desenhamos prédios. <em>Estruturamos</em> viabilidade executiva para o seu lançamento.</h2>
@@ -743,16 +797,19 @@
     <h2 class="section-heading" style="margin-bottom:48px">Por aqui, <em>transformamos estratégia em resultados.</em></h2>
     <div class="three-col">
       <div class="pillar">
+        <img src="../images/icone-pilar-01.svg" alt="" class="pillar-icon" aria-hidden="true">
         <div class="pillar-num">01</div>
         <h4>Inteligência estratégica</h4>
         <p>Unimos inteligência e precisão estratégica para desenvolver produtos imobiliários desenhados para a máxima performance do seu negócio.</p>
       </div>
       <div class="pillar">
+        <img src="../images/icone-pilar-02.svg" alt="" class="pillar-icon" aria-hidden="true">
         <div class="pillar-num">02</div>
         <h4>Braço técnico-consultivo</h4>
         <p>Somos a extensão da sua operação. Integramos processos para blindar o cronograma e garantir que a viabilidade executiva acompanhe a eficiência financeira — com a expertise de quem vivencia as especificidades de cada região do Brasil.</p>
       </div>
       <div class="pillar">
+        <img src="../images/icone-pilar-03.svg" alt="" class="pillar-icon" aria-hidden="true">
         <div class="pillar-num">03</div>
         <h4>Entrega no ritmo do mercado</h4>
         <p>Entregas de alta precisão no ritmo acelerado do mercado. Processos desburocratizados garantem que o seu próximo lançamento chegue com qualidade executiva sem gargalos.</p>
@@ -826,18 +883,14 @@
 <!-- ── CASES ── -->
 <section class="section bg-soft" id="cases">
   <div class="section-inner">
-    <span class="eyebrow">Projetos em operação</span>
+    <span class="eyebrow">Cases</span>
     <h2 class="section-heading" style="margin-bottom:40px">Resultado que se <em>sente.</em></h2>
     <div class="three-col">
 
       <!-- Matíz Residence -->
       <div class="case-card">
         <div class="case-card-img-wrap">
-          <div class="img-ph case-card-img" style="aspect-ratio:4/3">
-            <span>Case · Matíz Residence</span>
-            <span class="img-ph-file">case-matiz-residence.webp</span>
-            <span class="img-ph-dim">800 × 600 · WebP</span>
-          </div>
+          <img src="../images/case-matiz-residence.webp" alt="Matíz Residence" class="case-card-img" loading="lazy">
         </div>
         <div class="case-card-body">
           <h3 class="case-card-name">Matíz Residence</h3>
@@ -885,11 +938,7 @@
       <!-- Casa Alta -->
       <div class="case-card">
         <div class="case-card-img-wrap">
-          <div class="img-ph case-card-img" style="aspect-ratio:4/3">
-            <span>Case · Casa Alta</span>
-            <span class="img-ph-file">case-casa-alta.webp</span>
-            <span class="img-ph-dim">800 × 600 · WebP</span>
-          </div>
+          <img src="../images/case-casa-alta.webp" alt="Casa Alta" class="case-card-img" loading="lazy">
         </div>
         <div class="case-card-body">
           <h3 class="case-card-name">Casa Alta</h3>
@@ -995,41 +1044,34 @@
     navbar.classList.toggle('scrolled', window.scrollY > 50);
   }, { passive: true });
 
-  // ── Paralaxe hero por movimento do mouse ──
-  const heroEl   = document.querySelector('.hero');
-  const textLayer = heroEl.querySelector('.hero-text-layer');
-  const imgWrap   = heroEl.querySelector('.hero-img-wrap');
+  // ── Paralaxe collage — cada foto move independente ao hover ──
+  const collageEl = document.querySelector('.hero-collage');
+  const ph1 = collageEl.querySelector('.hero-photo-1');
+  const ph2 = collageEl.querySelector('.hero-photo-2');
+  const ph3 = collageEl.querySelector('.hero-photo-3');
 
-  // Valores alvo e atuais (lerp suave)
   let tx = 0, ty = 0;
-  let ctX = 0, ctY = 0; // texto atual
-  let ciX = 0, ciY = 0; // imagem atual
-  let inside = false;
+  const s1 = { x: 0, y: 0 }; // torre  — mais lenta (profundidade)
+  const s2 = { x: 0, y: 0 }; // interior — média
+  const s3 = { x: 0, y: 0 }; // edifício  — mais rápida (frente)
 
-  heroEl.addEventListener('mouseenter', () => { inside = true; });
-  heroEl.addEventListener('mouseleave', () => { inside = false; tx = 0; ty = 0; });
-
-  heroEl.addEventListener('mousemove', (e) => {
-    const r  = heroEl.getBoundingClientRect();
-    tx = (e.clientX - r.left)  / r.width  - 0.5; // -0.5 a +0.5
-    ty = (e.clientY - r.top)   / r.height - 0.5;
+  collageEl.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
+  collageEl.addEventListener('mousemove', (e) => {
+    const r = collageEl.getBoundingClientRect();
+    tx = (e.clientX - r.left) / r.width  - 0.5;
+    ty = (e.clientY - r.top)  / r.height - 0.5;
   });
 
   function lerp(a, b, t) { return a + (b - a) * t; }
 
   (function tick() {
     requestAnimationFrame(tick);
-
-    // Texto: camada frontal — movimento menor
-    ctX = lerp(ctX, tx * 18, 0.07);
-    ctY = lerp(ctY, ty * 10, 0.07);
-
-    // Imagem: camada de fundo — movimento maior, leve oposição vertical
-    ciX = lerp(ciX, tx * 32, 0.05);
-    ciY = lerp(ciY, ty * 22, 0.05);
-
-    textLayer.style.transform = `translate(${ctX}px, ${ctY}px)`;
-    imgWrap.style.transform   = `translate(${ciX}px, ${ciY}px)`;
+    s1.x = lerp(s1.x, tx * 18, 0.07); s1.y = lerp(s1.y, ty * 12, 0.07);
+    s2.x = lerp(s2.x, tx * 28, 0.07); s2.y = lerp(s2.y, ty * 18, 0.07);
+    s3.x = lerp(s3.x, tx * 40, 0.07); s3.y = lerp(s3.y, ty * 26, 0.07);
+    ph1.style.transform = `translate(${s1.x}px,${s1.y}px)`;
+    ph2.style.transform = `translate(${s2.x}px,${s2.y}px)`;
+    ph3.style.transform = `translate(${s3.x}px,${s3.y}px)`;
   })();
 </script>
 
